@@ -10,7 +10,13 @@ function Util() {
         return passengersNumbersArray.reduce((a, b) => {return a + b});
     }
 
-    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers};
+    const checkInput = (input) => {
+        if (!input || !isNan(input)) {
+            throw new Error();
+        }
+    }
+
+    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput};
 }
 
 module.exports = Util();
