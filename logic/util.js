@@ -6,7 +6,11 @@ function Util() {
                seatAssignments.regularPassengersWithEconomySeats;
     }
 
-    return {calculateTotalDistributedPassengers}
+    const calculateTotalNumberOfPassengers = (passengersNumbersArray) => {
+        return passengersNumbersArray.reduce((a, b) => {return a + b});
+    }
+
+    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers};
 }
 
 module.exports = Util();
