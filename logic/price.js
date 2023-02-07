@@ -5,7 +5,28 @@ function Prices() {
         return finalPrice.toFixed(2);
     }
 
-    return {calculateFinalPrice};
+    const calculateDefaultFinalPrice = (basePrice, passengerType, flightType) => {
+        let passengerTypeVariation, flightTypeVariation;
+
+        passengerType.toLowerCase();
+        flightType.toLowerCase();
+
+        if (passengerType === "regular") {
+            passengerTypeVariation = -5;
+        } else if (passengerType === "vip") {
+            passengerTypeVariation = 5;
+        }
+
+        if (flightType === "economy") {
+            flightTypeVariation = -3;
+        } else if (flightType === "business") {
+            flightTypeVariation = 10;
+        }
+
+        return calculateFinalPrice(basePrice, passengerTypeVariation, flightTypeVariation);
+    }
+
+    return {calculateFinalPrice, calculateDefaultFinalPrice};
 }
 
 module.exports = Prices();
