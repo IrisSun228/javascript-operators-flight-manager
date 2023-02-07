@@ -1,6 +1,8 @@
 function Prices() {
     const calculateFinalPrice = (basePrice, passengerTypeVariation, flightTypeVariation) => {
-        return basePrice * (1 + passengerTypeVariation / 100) * (1 + flightTypeVariation / 100);
+        let finalPrice =  basePrice * (1 + passengerTypeVariation / 100) * (1 + flightTypeVariation / 100);
+
+        return finalPrice.toFixed(2);
     }
 
     return {calculateFinalPrice};
