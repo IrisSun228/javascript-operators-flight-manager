@@ -11,10 +11,10 @@ function Passengers() {
 
     const distributeAllSeatsToAllPassengers = (vipPassengers, regPassengers, flights, businessSeats, economySeats) => {
         let seatAssignments = {
-            'vipBuisness' : 0,
-            'vipEconomy' : 0,
-            'regBusiness' : 0,
-            'regEconomy' : 0
+            'vipPassengersWithBusinessSeats' : 0,
+            'vipPassengersWithEconomySeats' : 0,
+            'regularPassengersWithBusinessSeats' : 0,
+            'regularPassengersWithEconomySeats' : 0
         }
 
         //Adjust  total passengers <= total seats
@@ -30,19 +30,19 @@ function Passengers() {
 
         //Assigning seats to passengers
         if (vipPassengers <= totalBS) {
-            seatAssignments.vipBuisness = vipPassengers;
+            seatAssignments.vipPassengersWithBusinessSeats = vipPassengers;
         } else {
-            seatAssignments.vipBuisness = totalBS;
-            seatAssignments.vipEconomy = vipPassengers - totalBS;
+            seatAssignments.vipPassengersWithBusinessSeats = totalBS;
+            seatAssignments.vipPassengersWithEconomySeats = vipPassengers - totalBS;
         }
 
         if (regPassengers <= totalBS - vipPassengers) {
-            seatAssignments.regBusiness = regPassengers;
+            seatAssignments.regularPassengersWithBusinessSeats = regPassengers;
         } else if (vipPassengers <= totalBS) {
-            seatAssignments.regBusiness = totalBS - vipPassengers;
-            seatAssignments.regEconomy = regPassengers - (vipPassengers - totalBS)
+            seatAssignments.regularPassengersWithBusinessSeats = totalBS - vipPassengers;
+            seatAssignments.regularPassengersWithEconomySeats = regPassengers - (vipPassengers - totalBS)
         } else {
-            seatAssignments.regEconomy = regPassengers;
+            seatAssignments.regularPassengersWithEconomySeats = regPassengers;
         }
 
         return seatAssignments;
