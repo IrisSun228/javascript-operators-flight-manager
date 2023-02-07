@@ -17,7 +17,21 @@ function Flights() {
         return numOfFlights;
     }
 
-    return {calculateNumberOfFlights};
+    const checkAircraftRevision = (distanceLimit, distancesArray) => {
+        let totalDistance = distancesArray.reduce((a, b) => {return a + b})
+
+        if (totalDistance <= distanceLimit / 2) {
+            return "The revision needs to be done within the next 3 months";
+        } else if (totalDistance <= distanceLimit * 3 / 4) {
+            return "The revision needs to be done within the next 2 months";
+        } else if (totalDistance <= distanceLimit) {
+            return "The revision needs to be done within the next month";
+        } else {
+            throw new Error();
+        };
+    }
+
+    return {calculateNumberOfFlights, checkAircraftRevision};
 }
 
 module.exports = Flights();
