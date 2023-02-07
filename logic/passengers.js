@@ -48,7 +48,7 @@ function Passengers() {
         return seatAssignments;
     }
 
-    return {checkFlightCapacity};
+    return {checkFlightCapacity, distributeAllSeatsToAllPassengers};
 }
 
 module.exports = Passengers();
