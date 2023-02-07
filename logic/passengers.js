@@ -40,7 +40,7 @@ function Passengers() {
             seatAssignments.regularPassengersWithBusinessSeats = regPassengers;
         } else if (vipPassengers <= totalBS) {
             seatAssignments.regularPassengersWithBusinessSeats = totalBS - vipPassengers;
-            seatAssignments.regularPassengersWithEconomySeats = regPassengers - (vipPassengers - totalBS)
+            seatAssignments.regularPassengersWithEconomySeats = regPassengers - (totalBS - vipPassengers)
         } else {
             seatAssignments.regularPassengersWithEconomySeats = regPassengers;
         }
