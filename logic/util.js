@@ -16,7 +16,11 @@ function Util() {
         }
     }
 
-    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput};
+    const calculateTotalDistance = (distancesArray) => {
+        return distancesArray.reduce((a, b) => {return b > 0 ? a + b : a}, 0);
+    }
+
+    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput, calculateTotalDistance};
 }
 
 module.exports = Util();
