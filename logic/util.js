@@ -20,7 +20,11 @@ function Util() {
         return distancesArray.reduce((a, b) => {return b > 0 ? a + b : a}, 0);
     }
 
-    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput, calculateTotalDistance};
+    const calculateBonusPoints = (businessDistancesArray, economyDistancesArray, businessBonus, economyBonus) => {
+        return businessBonus / 100 * calculateTotalDistance(businessDistancesArray) + economyBonus / 100 * calculateTotalDistance(economyDistancesArray);
+    }
+
+    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput, calculateTotalDistance, calculateBonusPoints};
 }
 
 module.exports = Util();
