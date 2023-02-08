@@ -26,7 +26,11 @@ function Prices() {
         return calculateFinalPrice(basePrice, passengerTypeVariation, flightTypeVariation);
     }
 
-    return {calculateFinalPrice, calculateDefaultFinalPrice};
+    const calculateTotalFinalPrice = (seats, passengerType, flightType, basePrice) => {
+        return seats * calculateDefaultFinalPrice(basePrice, passengerType, flightType);
+    }
+
+    return {calculateFinalPrice, calculateDefaultFinalPrice, calculateTotalFinalPrice};
 }
 
 module.exports = Prices();
